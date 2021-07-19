@@ -21,7 +21,7 @@ class RegistrationForm(UserCreationForm):
 class NewPostForm(forms.ModelForm):
     class Meta:
         model= Post
-        fields=['title','url','image','author']
+        fields=['title','url','live','image','author']
         widgets={
 
         }

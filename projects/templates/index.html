@@ -1,5 +1,5 @@
 
-
+{%extends 'base.html'%}
 {% block content %}
 <h1>Projects Rating</h1>
 <a class="btn btn-primary" href="{% url 'create' %}">New Post</a>
@@ -9,17 +9,25 @@
 {% for post in posts.all %}
 {% if user.is_authenticated %}
 
-<table>
-    <tr>
-        
-        <td style="padding-right: 20px;"><a href="{{ post.url }}">{{ post.title }}</a><br>{{ post.publication_date }} by
-            <a href="/">{{ post.author.username }}</a></td>
-            {% if post.image %}
-            <img src="{{ post.image.url }}">
-            {% endif %}
-    </tr>
-</table>
+        <div class= container>
+            <div class="row">
+                <div class="col-md-4">
 
+                        <h3>{{ post.title }}</h3>
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" >
+                        {% endif %}
+                        <h4><a href="{{ post.url }}">Github Repo Link</a></h4>
+                        <h4>Github Live Link</h4> 
+
+                        <a href="/">{{ post.author.username }}</a>
+                        <p>{{ post.publication_date }}</p>
+
+                </div>
+            </div>
+        </div>
+        
+       
 
 
 {% endif %}
