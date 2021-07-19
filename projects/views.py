@@ -14,10 +14,10 @@ from django.db.models import Avg
 @login_required(login_url='/accounts/login/')
 def index(request):
     posts = Post.objects.order_by('-votes_total')
-    rates = RateModel.objects.order_by('user')
-    avg = RateModel.objects.aggregate(design = Avg('design'), usability = Avg('usability'), content = Avg('content'))
-    dict = {'records': posts, 'rates': rates, 'avg': avg}
-    return render(request, 'index.html', {'posts':posts})
+    # rates = RateModel.objects.order_by('user')
+    # avg = RateModel.objects.aggregate(design = Avg('design'), usability = Avg('usability'), content = Avg('content'))
+    # dict = {'records': posts, 'rates': rates, 'avg': avg}
+    return render(request, 'index.html', {'posts':posts}, )#context=dict
 
 @login_required(login_url='/accounts/login/') 
 def profile(request):
