@@ -7,6 +7,7 @@ class Post(models.Model):
     url = models.TextField()
     pub_date = models.DateTimeField()  
     author= models.ForeignKey(User,on_delete = models.CASCADE)  
+    image= models.ImageField(upload_to='MEDIA/')
     votes_total = models.IntegerField(default=1)
 
     def publication_date(self):
