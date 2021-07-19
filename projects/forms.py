@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import fields
+from .models import *
 
 
 class RegistrationForm(UserCreationForm):
@@ -16,3 +17,11 @@ class RegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user     
+
+class NewPostForm(forms.ModelForm):
+    class Meta:
+        model= Post
+        fields=['title','url','image','author']
+        widgets={
+
+        }
