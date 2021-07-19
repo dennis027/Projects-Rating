@@ -2,18 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Post
+from .models import *
 from .forms import *
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 import datetime
 from django.utils.timezone import utc
-
+from django.db.models import Avg 
 
 @login_required(login_url='/accounts/login/')
 def index(request):
     posts = Post.objects.order_by('-votes_total')
+    rates = RateModel.objects.order_by('user')
+    avg = RateModel.objects.aggregate(design = Avg('design'), usability = Avg('usability'), content = Avg('content'))
+    dict = {'records': posts, 'rates': rates, 'avg': avg}
     return render(request, 'index.html', {'posts':posts})
 
 @login_required(login_url='/accounts/login/') 
