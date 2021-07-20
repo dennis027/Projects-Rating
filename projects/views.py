@@ -75,4 +75,19 @@ def create(request):
         return redirect('index')
     else:
         form = NewPostForm()
-    return render(request, 'posts/create_post.html', {"form": form})            
+    return render(request, 'posts/create_post.html', {"form": form})     
+
+
+
+def search_results(request):
+
+    if 'post' in request.GET and request.GET["post"]:
+        search_term = request.GET.get("post")
+        searched_posts = Post.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'posts/search.html',{"message":message,"articles": searched_posts})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'posts/search.html',{"message":message})           

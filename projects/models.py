@@ -14,7 +14,10 @@ class Post(models.Model):
     def publication_date(self):
         return self.pub_date.strftime('%b %e, %Y')
 
-
+    @classmethod
+    def search_by_title(cls,search_term):
+        post = cls.objects.filter(title__icontains=search_term)
+        return post
 class RateModel(models.Model):
     pass
     # TEN_REVIEWS= (
