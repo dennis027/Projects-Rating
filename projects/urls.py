@@ -15,6 +15,8 @@ urlpatterns=[
     url(r'^create/', views.create, name="create"),
     url(r'^search/', views.search_results, name='search_results'),
     path('search/', views.search_results, name='search_results'),
+    path('<username>/profile', views.user_profile, name='userprofile'),
+    path('<username>/profile/', views.profile, name='profile'),
     ]
 
 if settings.DEBUG:
