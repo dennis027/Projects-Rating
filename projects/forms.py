@@ -25,3 +25,9 @@ class NewPostForm(forms.ModelForm):
         widgets={
 
         }
+
+class RatingsForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['design', 'usability', 'content']
+
