@@ -15,7 +15,7 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
-from settings import PROJECT_ROOT
+
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
