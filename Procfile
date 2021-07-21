@@ -1,2 +1,2 @@
 
-web: gunicorn projects-rating.wsgi --log-file -
+web: gunicorn reddit.wsgi --log-file -
