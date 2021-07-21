@@ -21,7 +21,7 @@ class RegistrationForm(UserCreationForm):
 class NewPostForm(forms.ModelForm):
     class Meta:
         model= Post
-        fields=['title','url','live','image','author']
+        fields=['title','repo_url','live_link','image','author']
         widgets={
 
         }
@@ -52,3 +52,6 @@ class RatingsForm(forms.ModelForm):
     class Meta:
         model = Rating
         fields = ['design', 'usability', 'content']        
+
+
+#<a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a>        

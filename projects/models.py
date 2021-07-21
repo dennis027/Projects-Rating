@@ -4,8 +4,8 @@ from django.utils import timezone
 # Create your models here.class Post(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    url = models.CharField(max_length=200)
-    live = models.CharField(max_length=200)
+    repo_url = models.CharField(max_length=200)
+    live_link = models.CharField(max_length=200)
     pub_date = models.DateTimeField(default=timezone.now)  
     author= models.ForeignKey(User,on_delete = models.CASCADE)  
     image= models.ImageField(upload_to='MEDIA/')
@@ -16,8 +16,8 @@ class Post(models.Model):
 
     @classmethod
     def search_by_title(cls,search_term):
-        posts = cls.objects.filter(title__icontains=search_term)
-        return posts
+        post = cls.objects.filter(title__icontains=search_term)
+        return post
 
 
 class Profile(models.Model):

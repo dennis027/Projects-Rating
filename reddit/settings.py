@@ -40,6 +40,7 @@ INSTALLED_APPS = [
             'projects',
             'bootstrap3',
                 'cloudinary',
+                'crispy_forms',
 
 
 ]
