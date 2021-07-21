@@ -15,6 +15,7 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+from settings import PROJECT_ROOT
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -131,6 +132,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
