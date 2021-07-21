@@ -13,6 +13,11 @@ from django.utils.timezone import utc
 from django.db.models import Avg 
 import random
 from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  MoringaMerch
+from .serializer import MerchSerializer
+
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -172,3 +177,5 @@ def edit_profile(request, username):
         'prof_form': prof_form
     }
     return render(request, 'edit.html', params)              
+
+    
