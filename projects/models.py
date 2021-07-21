@@ -28,6 +28,12 @@ class Profile(models.Model):
     location = models.CharField(max_length=60, blank=True)
     contact = models.EmailField(max_length=100, blank=True)
 
+    def save_flashcard(self):
+        self.save()
+
+    def delete_flashcard(self):
+        self.delete()    
+
     def __str__(self):
         return f'{self.user.username} Profile'
 
