@@ -1,6 +1,7 @@
 
 {%extends 'base.html'%}
 {% block content %}
+<div class= container>
 <h1>Projects Rating</h1>
 <a class="btn btn-primary" href="{% url 'create' %}">New Post</a>
 <br>
@@ -9,7 +10,7 @@
 {% for post in posts.all %}
 {% if user.is_authenticated %}
 
-        <div class= container>
+        
             <div class="row">
                 <div class="col-md-4">
 

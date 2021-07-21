@@ -147,7 +147,7 @@ def profile(request):
     # p = Project.objects.filter(user=current_user.id).all
     return render(request, 'profile.html')
 
-    return render(request, 'profile.html')
+
 
 
 def user_profile(request, username):
