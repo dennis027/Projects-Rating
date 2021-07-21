@@ -14,6 +14,11 @@ class Post(models.Model):
     def publication_date(self):
         return self.pub_date.strftime('%b %e, %Y')
 
+    def save_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()  
     @classmethod
     def search_by_title(cls,search_term):
         post = cls.objects.filter(title__icontains=search_term)
@@ -28,15 +33,15 @@ class Profile(models.Model):
     location = models.CharField(max_length=60, blank=True)
     contact = models.EmailField(max_length=100, blank=True)
 
-    def save_flashcard(self):
-        self.save()
-
-    def delete_flashcard(self):
-        self.delete()    
+    
 
     def __str__(self):
         return f'{self.user.username} Profile'
+    def save_profile(self):
+        self.save()
 
+    def delete_profile(self):
+        self.delete()  
     # @receiver(post_save, sender=User)
     # def create_user_profile(sender, instance, created, **kwargs):
     #     if created:
