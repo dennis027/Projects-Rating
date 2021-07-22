@@ -4,3 +4,9 @@ a{
 h4{
     color: blue;
 }
+.image-responsive{
+    
+        width: 100%;
+        height: auto;
+     
+}

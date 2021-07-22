@@ -16,11 +16,18 @@
 
                         <h3>{{ post.title }}</h3>
                         {% if post.image %}
-                        <img src="{{ post.image.url }}" >
+                        <img src="{{ post.image.url }}" class="img-responsive" alt="" >
+                        <style>
+                            .img-responsive {
+                              width: 100%;
+                              height: auto;
+                            }
+                            </style>
                         {% endif %}
+
                         <br><br>
 
-                        <button type="button" "btn btn-light"><a href="{{ post.url }}">Github Repo Link</a></button>
+                        <button type="button" class="btn btn-light"><a href="{{ post.url }}">Github Repo Link</a></button>
                         <button type="button" class="btn btn-danger"><a href="{{ post.live }}">Github Live Link</a></button>    
                        
 
